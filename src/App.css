@@ -1,0 +1,19 @@
+.logoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header img {
+  width: 3rem;
+  height: 3rem;
+}
+span {
+  color: red;
+}
