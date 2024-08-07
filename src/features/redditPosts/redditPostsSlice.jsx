@@ -13,11 +13,11 @@ export const redditPostsSlice = createSlice({
   name: "redditPosts",
   initialState: {
     reddit: {
-      posts: [],
+      posts: {},
       isLoading: false,
-      error: null,
+      error: false,
       searchTerm: "",
-      selectedSubreddits: [],
+      selectedSubreddits: "",
     },
     subreddits: {
       subreddits: [],
@@ -26,4 +26,23 @@ export const redditPostsSlice = createSlice({
     },
   },
   reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(getRedditPosts.pending, (state) => {
+        state.reddit.isLoading = true;
+        state.reddit.error = false;
+      }).addCase(getRedditPosts.rejected, (state) => {
+        state.reddit.isLoading = false;
+        state.reddit.error = true;
+      }).addCase(getRedditPosts.fulfilled, (state, action) => {
+        state.reddit.isLoading = false;
+        state.reddit.error = false;
+        state.reddit.posts.push(action.payload)
+        state.redddit.selectedSubreddits = "popular";
+        
+      })
+  },
 });
+
+
+export default redditPostsSlice.reducer
