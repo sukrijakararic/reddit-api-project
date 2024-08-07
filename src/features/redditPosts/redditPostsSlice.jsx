@@ -9,40 +9,36 @@ export const getRedditPosts = createAsyncThunk(
   }
 );
 
+const initialState = {
+  posts: [],
+  isLoading: false,
+  error: false,
+  searchTerm: "",
+  selectedSubreddits: "",
+};
+
 export const redditPostsSlice = createSlice({
   name: "redditPosts",
-  initialState: {
-    reddit: {
-      posts: {},
-      isLoading: false,
-      error: false,
-      searchTerm: "",
-      selectedSubreddits: "",
-    },
-    subreddits: {
-      subreddits: [],
-      isLoading: false,
-      error: false,
-    },
-  },
+  initialState,
+
   reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(getRedditPosts.pending, (state) => {
         state.reddit.isLoading = true;
         state.reddit.error = false;
-      }).addCase(getRedditPosts.rejected, (state) => {
+      })
+      .addCase(getRedditPosts.rejected, (state) => {
         state.reddit.isLoading = false;
         state.reddit.error = true;
-      }).addCase(getRedditPosts.fulfilled, (state, action) => {
+      })
+      .addCase(getRedditPosts.fulfilled, (state, action) => {
         state.reddit.isLoading = false;
         state.reddit.error = false;
-        state.reddit.posts.push(action.payload)
+        state.reddit.posts.push(action.payload);
         state.redddit.selectedSubreddits = "popular";
-        
-      })
+      });
   },
 });
 
-
-export default redditPostsSlice.reducer
+export default redditPostsSlice.reducer;
