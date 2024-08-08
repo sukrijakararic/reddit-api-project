@@ -2,9 +2,10 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 export const getRedditPosts = createAsyncThunk(
   "redditPosts/getRedditPosts",
-  async (arg, thunkAPI) => {
+  async () => {
     const response = await fetch("https://www.reddit.com/r/popular.json");
     const json = await response.json();
+    console.log(json)
     return json;
   }
 );
@@ -36,7 +37,7 @@ export const redditPostsSlice = createSlice({
         state.reddit.isLoading = false;
         state.reddit.error = false;
         state.reddit.posts.push(action.payload);
-        state.redddit.selectedSubreddits = "popular";
+        state.redddit.selectedSubreddits = "r/popular";
       });
   },
 });
