@@ -26,20 +26,22 @@ export const redditPostsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getRedditPosts.pending, (state) => {
-        state.reddit.isLoading = true;
-        state.reddit.error = false;
+        state.isLoading = true;
+        state.error = false;
       })
       .addCase(getRedditPosts.rejected, (state) => {
-        state.reddit.isLoading = false;
+        state.isLoading = false;
         state.reddit.error = true;
       })
       .addCase(getRedditPosts.fulfilled, (state, action) => {
-        state.reddit.isLoading = false;
-        state.reddit.error = false;
-        state.reddit.posts.push(action.payload);
-        state.redddit.selectedSubreddits = "r/popular";
+        state.isLoading = false;
+        state.error = false;
+        state.posts = action.payload.data.children;
+        state.selectedSubreddits = "r/popular";
       });
   },
 });
 
 export default redditPostsSlice.reducer;
+
+

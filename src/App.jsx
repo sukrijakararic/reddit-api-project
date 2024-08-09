@@ -5,15 +5,20 @@ import {
   RouterProvider,
   createRoutesFromElements,
 } from "react-router-dom";
-import { Header } from "./components/Header";
+
+import { Posts } from "./features/redditPosts/Posts";
+import { Root } from "./Root";
 
 const router = createBrowserRouter(
-  createRoutesFromElements(<Route path="/" element={<Header />}>
-    
-  </Route>)
+  createRoutesFromElements(
+    <Route path="/" element={<Root />}>
+      <Route index element={<Posts />} />
+    </Route>
+  )
 );
+
 function App() {
-  return <>{<RouterProvider router={router} />}</>;
+  return <><RouterProvider router={router} /></>
 }
 
 export default App;

@@ -1,6 +1,9 @@
 import React from "react";
 
+
 export const Header = () => {
+
+
   return (
     <div>
       <div className="header">
@@ -19,5 +22,5 @@ export const Header = () => {
 
       </div>
     </div>
-  );
+  )
 };
