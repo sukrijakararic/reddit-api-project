@@ -16,6 +16,7 @@ export const Posts = () => {
       {posts.map((post) => (
         <div key={post.data.id}>
           <h3>{post.data.title}</h3>
+          <img src={post.data.thumbnail}/>
         </div>
       ))}
     </div>
