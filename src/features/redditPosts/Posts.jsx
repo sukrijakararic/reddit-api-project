@@ -1,4 +1,4 @@
-import { React, useEffect, useState } from "react";
+import { React, useEffect} from "react";
 import { getRedditPosts } from "./redditPostsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./Posts.module.css";
@@ -16,17 +16,6 @@ export const Posts = () => {
     handleFetchPosts();
   }, []);
 
-  const [clickGreen, setClickGreen] = useState('');
-  const [clickRed, setClickRed] = useState('');
-
-  const clickToGreen = () => {
-    setClickGreen('green')
-  }
-
-  const clickToRed = () => {
-    setClickRed('red')
-  }
-
   // if (!posts) return <h1>Loading...</h1>; going to expand on this to have a loading feature
   return (
     <main>
@@ -34,7 +23,7 @@ export const Posts = () => {
         <article key={post.data.id} className={styles.postContainer}>
           <div className={styles.topCard}>
           <div className={styles.upVotes}>
-            <img className={styles.arrow} src="/arrow-up.svg" alt="up-arrow" />
+          <img className={styles.arrow} src="/arrow-up.svg" alt="up-arrow" />
           <p className={styles.ups}>{post.data.ups >= 1000 ? `${(post.data.ups / 1000).toFixed(1)}k` : post.data.ups}</p>
           <img className={styles.arrow} src="/arrow-down.svg" alt="down-arrow" />
           </div>
