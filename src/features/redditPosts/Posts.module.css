@@ -1,0 +1,12 @@
+.posts-container {
+  display: flex;
+  background-color: blue;
+}
+h3 {
+  font-family: "roboto";
+}
+img {
+  width: 27rem;
+  height: 22rem;
+  object-fit: cover;
+}

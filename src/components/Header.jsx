@@ -5,7 +5,7 @@ export const Header = () => {
 
 
   return (
-    <div>
+    <header>
       <div className="header">
         <div className="logoContainer">
           <img src="robot-44.svg" alt="a logo of reddit reduced" />
@@ -14,13 +14,13 @@ export const Header = () => {
           </h1>
         </div>
 
-        <form action="">
+        <form className="search">
           {" "}
-          <input type="text" name="searchReddit" id="searchReddit" />
-          <button>Search</button>
+          <input type="text" name="Search" id="Search" />
+          <button type="submit">Search</button>
         </form>
 
       </div>
-    </div>
+    </header>
   )
 };
