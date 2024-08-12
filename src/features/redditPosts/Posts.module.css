@@ -1,12 +1,45 @@
-.posts-container {
-  display: flex;
-  background-color: blue;
+.postContainer {
+ border: 1px solid #DEDEDE;
+  margin: 1rem;
+  border-radius: 3rem;
+  
+  padding: 1rem;
 }
+
+.postContainer:hover {
+  box-shadow: 15px 15px 15px #DEDEDE; }
 h3 {
   font-family: "roboto";
+  margin-left: 1rem;
 }
+
 img {
-  width: 27rem;
-  height: 22rem;
-  object-fit: cover;
+  width: 30rem;
+  margin-left: 3rem;
+}
+
+
+.time {
+  margin-left: 4rem;
+  font-family: "Roboto";
+}
+
+.ups {
+  font-family: "Roboto";
+  font-size: 1.3rem;
+}
+
+@media only screen and (max-width: 600px) {
+  img {
+    width:20rem;
+  }
+  .ups {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 470px) {
+  img {
+    width:12rem;
+  }
 }

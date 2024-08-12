@@ -10,7 +10,7 @@ export const Header = () => {
         <div className="logoContainer">
           <img src="robot-44.svg" alt="a logo of reddit reduced" />
           <h1>
-            <span>Reddit</span> Reduced
+            <span className="Reddit">Reddit</span> Reduced
           </h1>
         </div>
 
