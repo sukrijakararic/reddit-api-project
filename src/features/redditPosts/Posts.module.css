@@ -43,16 +43,6 @@ img {
   font-size: 1.3rem;
 }
 
-.arrow {
-  width: 1.5rem;
-  height: 1.5rem;
-  margin-left: .5rem;
-}
-
-.arrow:hover {
-  cursor: pointer;
-}
-
 
 @media only screen and (max-width: 600px) {
   img {
