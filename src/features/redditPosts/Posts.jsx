@@ -48,10 +48,9 @@ export const Posts = () => {
             <h3>{post.data.title}</h3>
           </div>
           <img src={post.data.url} />
-          <div className="extra-info">
-            <span className={styles.time}>
-              {ms(Date.now() - post.data.created_utc * 1000)} ago{" "}
-            </span>
+          <div className={styles.bottomCard}>
+            <span>u/{post.data.author} -- {ms(Date.now() - post.data.created_utc * 1000)} ago</span>
+            <span>{post.data.num_comments} comments</span>
           </div>
         </article>
       ))}
