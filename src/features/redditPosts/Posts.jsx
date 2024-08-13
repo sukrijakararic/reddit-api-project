@@ -35,6 +35,7 @@ export const Posts = () => {
         <article key={post.data.id} className={styles.postContainer}>
           <div className={styles.topCard}>
             <div className={styles.upVotes}>
+              {/*<img className={styles.arrow} src="/arrow-up.svg" alt="up-arrow" />*/}
               <ArrowUp fill={green} onClick={handleGreen} />
               <p className={styles.ups}>
                 {post.data.ups >= 1000
@@ -42,6 +43,7 @@ export const Posts = () => {
                   : post.data.ups}
               </p>
               <ArrowDown fill={red} onClick={handleRed}/>
+              {/*<img className={styles.arrow} src="/arrow-down.svg" alt="down-arrow" />*/}
             </div>
             <h3>{post.data.title}</h3>
           </div>
