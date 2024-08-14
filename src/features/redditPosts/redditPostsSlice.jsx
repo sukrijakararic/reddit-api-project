@@ -1,14 +1,16 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
+const API_ROOT = "https://www.reddit.com";
 export const getRedditPosts = createAsyncThunk(
   "redditPosts/getRedditPosts",
   async () => {
-    const response = await fetch("https://www.reddit.com/r/earthPorn.json");
+    const response = await fetch(`${API_ROOT}/r/earthPorn.json`);
     const json = await response.json();
     console.log(json)
     return json;
   }
 );
+
 
 const initialState = {
   posts: [],
@@ -38,7 +40,7 @@ export const redditPostsSlice = createSlice({
         state.error = false;
         state.posts = action.payload.data.children;
         state.selectedSubreddits = "r/earthPorn";
-      });
+      })
   },
 });
 
