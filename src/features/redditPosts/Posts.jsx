@@ -1,10 +1,11 @@
 import { React, useEffect, useState } from "react";
-import { getRedditPosts } from "./redditPostsSlice";
+import { getRedditPosts, getComments } from "./redditPostsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./Posts.module.css";
 import ms from "ms";
 import { ArrowUp } from "../../components/svg-arrows/ArrowUp";
 import { ArrowDown } from "../../components/svg-arrows/ArrowDown";
+import { CommentsDisplay } from "../comments/CommentsDisplay";
 
 export const Posts = () => {
   const dispatch = useDispatch();
@@ -33,6 +34,7 @@ export const Posts = () => {
     <main>
       {posts.map((post) => (
         <article key={post.data.id} className={styles.postContainer}>
+          
           <div className={styles.topCard}>
             <div className={styles.upVotes}>
               {/*<img className={styles.arrow} src="/arrow-up.svg" alt="up-arrow" />*/}
@@ -42,18 +44,25 @@ export const Posts = () => {
                   ? `${(post.data.ups / 1000).toFixed(1)}k`
                   : post.data.ups}
               </p>
-              <ArrowDown fill={red} onClick={handleRed}/>
+              <ArrowDown fill={red} onClick={handleRed} />
               {/*<img className={styles.arrow} src="/arrow-down.svg" alt="down-arrow" />*/}
             </div>
             <h3>{post.data.title}</h3>
           </div>
           <img src={post.data.url} />
           <div className={styles.bottomCard}>
-            <span>u/{post.data.author} -- {ms(Date.now() - post.data.created_utc * 1000)} ago</span>
+            <span>
+              u/{post.data.author} --{" "}
+              {ms(Date.now() - post.data.created_utc * 1000)} ago
+            </span>
             <span>{post.data.num_comments} comments</span>
+            <div>
+              <p onClick={() => dispatch(getComments(post.data.permalink))}>link</p>
+            </div>
           </div>
         </article>
       ))}
+      <CommentsDisplay />
     </main>
   );
 };

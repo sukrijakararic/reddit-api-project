@@ -32,6 +32,16 @@ export const redditPostsSlice = createSlice({
       state.error = false;
       state.posts = action.payload.data.children;
       state.selectedSubreddits = "/r/earthPorn";
+    }).addCase(getComments.pending, (state) => {
+      state.commentsIsLoading = true;
+      state.commentsError = false;
+    }).addCase(getComments.rejected, (state) => {
+      state.commentsIsLoading = false;
+      state.commentsError = true;
+    }).addCase(getComments.fulfilled, (state, action) => {
+      state.commentsIsLoading = false;
+      state.commentsError = false;
+      state.comments = action.payload[1].data.children;
     })
   },
 });
@@ -49,3 +59,12 @@ export const getRedditPosts = createAsyncThunk(
   }
 );
 
+export const getComments = createAsyncThunk(
+  "redditPosts/getComments",
+  async (url) => {
+    const response = await fetch(`${API_ROOT}${url}.json`);
+    const json = await response.json();
+    console.log(json)
+    return json;
+  }
+);
