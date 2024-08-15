@@ -7,7 +7,9 @@ export const CommentsDisplay = () => {
   return (
     <div>
       {comments.map((comment) => (
-        <p key={comment.data.id}>{comment.data.body}</p>
+        <ul>
+        <li key={comment.data.id}>{comment.data.body}</li>
+        </ul>
       ))}
     </div>
   )

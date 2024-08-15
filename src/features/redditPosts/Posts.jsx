@@ -55,14 +55,13 @@ export const Posts = () => {
               u/{post.data.author} --{" "}
               {ms(Date.now() - post.data.created_utc * 1000)} ago
             </span>
-            <span>{post.data.num_comments} comments</span>
             <div>
-              <p onClick={() => dispatch(getComments(post.data.permalink))}>link</p>
+              <p onClick={() => dispatch(getComments(post.data.permalink))}><span>{post.data.num_comments} comments</span></p>
+          <CommentsDisplay />
             </div>
           </div>
         </article>
       ))}
-      <CommentsDisplay />
     </main>
   );
 };
