@@ -15,34 +15,38 @@ const initialState = {
 export const redditPostsSlice = createSlice({
   name: "redditPosts",
   initialState,
-  
+
   reducers: {},
   extraReducers: (builder) => {
     builder
-    .addCase(getRedditPosts.pending, (state) => {
-      state.isLoading = true;
-      state.error = false;
-    })
-    .addCase(getRedditPosts.rejected, (state) => {
-      state.isLoading = false;
-      state.reddit.error = true;
-    })
-    .addCase(getRedditPosts.fulfilled, (state, action) => {
-      state.isLoading = false;
-      state.error = false;
-      state.posts = action.payload.data.children;
-      state.selectedSubreddits = "/r/earthPorn";
-    }).addCase(getComments.pending, (state) => {
-      state.commentsIsLoading = true;
-      state.commentsError = false;
-    }).addCase(getComments.rejected, (state) => {
-      state.commentsIsLoading = false;
-      state.commentsError = true;
-    }).addCase(getComments.fulfilled, (state, action) => {
-      state.commentsIsLoading = false;
-      state.commentsError = false;
-      state.comments = action.payload[1].data.children;
-    })
+      .addCase(getRedditPosts.pending, (state) => {
+        state.isLoading = true;
+        state.error = false;
+      })
+      .addCase(getRedditPosts.rejected, (state) => {
+        state.isLoading = false;
+        state.reddit.error = true;
+      })
+      .addCase(getRedditPosts.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = false;
+        state.posts = action.payload.data.children;
+        state.selectedSubreddits = "/r/earthPorn";
+      })
+      .addCase(getComments.pending, (state) => {
+        state.commentsIsLoading = true;
+        state.commentsError = false;
+      })
+      .addCase(getComments.rejected, (state) => {
+        state.commentsIsLoading = false;
+        state.commentsError = true;
+      })
+      .addCase(getComments.fulfilled, (state, action) => {
+        state.commentsIsLoading = false;
+        state.commentsError = false;
+        state.comments = action.payload[1].data.children;
+        state.showingComments = true;
+      });
   },
 });
 
@@ -54,7 +58,7 @@ export const getRedditPosts = createAsyncThunk(
   async () => {
     const response = await fetch(`${API_ROOT}/r/earthPorn.json`);
     const json = await response.json();
-    console.log(json)
+    console.log(json);
     return json;
   }
 );
@@ -64,7 +68,7 @@ export const getComments = createAsyncThunk(
   async (url) => {
     const response = await fetch(`${API_ROOT}${url}.json`);
     const json = await response.json();
-    console.log(json)
+    console.log(json);
     return json;
   }
 );
