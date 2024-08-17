@@ -11,8 +11,11 @@ export const Posts = () => {
   const dispatch = useDispatch();
 
   const posts = useSelector((state) => state.redditPosts.posts);
+  const subreddit = useSelector((state) => state.redditPosts.selectedSubreddits
+  );
+  
   const handleFetchPosts = () => {
-    dispatch(getRedditPosts());
+    dispatch(getRedditPosts(subreddit));
   };
 
   useEffect(() => {
