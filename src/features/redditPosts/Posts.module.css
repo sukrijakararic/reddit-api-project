@@ -2,7 +2,7 @@
  border: 1px solid #DEDEDE;
   margin: 1rem;
   border-radius: 3rem;
-  max-width: 60rem;
+  max-width: 55rem;
   padding: 1rem;
 }
 
@@ -23,7 +23,7 @@ h3 {
 
 }
 
-img {
+.postImage {
   width: 30rem;
   margin-left: 3rem;
 }

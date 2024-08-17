@@ -1,0 +1,34 @@
+.subredditsHeader {
+    font-family: 'roboto';
+margin-left: 1rem;
+}
+
+.subredditIcon {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: .5rem;
+    border-radius: 1rem;
+}
+
+.subredditButton {
+    display: flex;
+    align-items: center;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    font-family: 'roboto';
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.subredditButton:hover {
+    cursor: pointer;
+    background-color: #DEDEDE;
+    box-shadow: 10px 10px 15px #DEDEDE; 
+}
+
+.subredditButton:active {
+    background-color: #DEDEDE;
+    box-shadow: none;
+    padding: .9rem;
+}

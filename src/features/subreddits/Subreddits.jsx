@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getSubreddits } from "./subredditsSlice";
 import { getRedditPosts } from "../redditPosts/redditPostsSlice";
 import { setSelectedSubreddits } from "../redditPosts/redditPostsSlice";
+import styles from "./Subreddits.module.css";
 
 export const Subreddits = () => {
   const dispatch = useDispatch();
@@ -19,20 +20,20 @@ export const Subreddits = () => {
 
   return (
     <div>
-      <h1>Subreddits</h1>
-      <ul>
+      <h1 className={styles.subredditsHeader}>Subreddits</h1>
         {subreddits.map((subreddit) => (
-          <li
+          <button
+          className={styles.subredditButton}
             key={subreddit.data.id}
             onClick={() => {
               dispatch(getRedditPosts(subreddit.data.url));
               dispatch(setSelectedSubreddits(subreddit.data.url));
             }}
           >
+            <img className={styles.subredditIcon} src={subreddit.data.icon_img} alt={`${subreddit.data.display_name}`} />
             {subreddit.data.display_name}
-          </li>
+          </button>
         ))}
-      </ul>
     </div>
   );
 };

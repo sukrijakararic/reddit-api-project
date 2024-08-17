@@ -52,7 +52,7 @@ export const Posts = () => {
             </div>
             <h3>{post.data.title}</h3>
           </div>
-          <img src={post.data.url} />
+          <img className={styles.postImage} src={post.data.url} />
           <div className={styles.bottomCard}>
             <span>
               u/{post.data.author} --{" "}
