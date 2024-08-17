@@ -6,6 +6,7 @@ import ms from "ms";
 import { ArrowUp } from "../../components/svg-arrows/ArrowUp";
 import { ArrowDown } from "../../components/svg-arrows/ArrowDown";
 import { CommentsDisplay } from "../comments/CommentsDisplay";
+import { getSubreddits } from "../subreddits/subredditsSlice";
 
 export const Posts = () => {
   const dispatch = useDispatch();
