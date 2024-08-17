@@ -11,8 +11,7 @@ export const Posts = () => {
   const dispatch = useDispatch();
 
   const posts = useSelector((state) => state.redditPosts.posts);
-  const subreddit = useSelector((state) => state.redditPosts.selectedSubreddits
-  );
+  const subreddit = useSelector((state) => state.redditPosts.selectedSubreddits);
   
   const handleFetchPosts = () => {
     dispatch(getRedditPosts(subreddit));
@@ -59,7 +58,7 @@ export const Posts = () => {
               {ms(Date.now() - post.data.created_utc * 1000)} ago
             </span>
             <div>
-              <p onClick={() => dispatch(getComments(post.data.permalink))}><span>{post.data.num_comments} comments</span></p>
+              <p className={styles.comments} onClick={() => dispatch(getComments(post.data.permalink))}><span>{post.data.num_comments} comments</span></p>
           <CommentsDisplay />
             </div>
           </div>
