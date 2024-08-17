@@ -5,7 +5,7 @@ const initialState = {
   isLoading: false,
   error: false,
   searchTerm: "",
-  selectedSubreddits: "/r/earthPorn",
+  selectedSubreddits: "/r/earthPorn/",
   comments: [],
   commentsIsLoading: false,
   commentsError: false,
@@ -16,7 +16,11 @@ export const redditPostsSlice = createSlice({
   name: "redditPosts",
   initialState,
 
-  reducers: {},
+  reducers: {
+    setSelectedSubreddits: (state, action) => {
+      state.selectedSubreddits = action.payload;
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getRedditPosts.pending, (state) => {
@@ -31,7 +35,6 @@ export const redditPostsSlice = createSlice({
         state.isLoading = false;
         state.error = false;
         state.posts = action.payload.data.children;
-        state.selectedSubreddits = "/r/earthPorn";
       })
       .addCase(getComments.pending, (state) => {
         state.commentsIsLoading = true;
@@ -50,6 +53,7 @@ export const redditPostsSlice = createSlice({
   },
 });
 
+export const { setSelectedSubreddits } = redditPostsSlice.actions;
 export default redditPostsSlice.reducer;
 
 const API_ROOT = "https://www.reddit.com";

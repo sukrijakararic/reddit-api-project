@@ -22,3 +22,9 @@
 .Reddit {
   color: red;
 }
+
+.componentMain {
+  display: flex;
+  flex-wrap: wrap;
+
+}
