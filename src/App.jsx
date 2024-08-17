@@ -5,11 +5,15 @@ import { Posts } from "./features/redditPosts/Posts";
 import { Subreddits } from "./features/subreddits/Subreddits";
 
 function App() {
-  return <>
-  < Header />
-  <Posts />
-  <Subreddits />
-  </>
+  return (
+    <>
+      <Header />
+      <Posts />
+      <aside>
+        <Subreddits />
+      </aside>
+    </>
+  );
 }
 
 export default App;
