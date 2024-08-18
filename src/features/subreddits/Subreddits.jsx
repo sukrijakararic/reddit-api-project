@@ -9,6 +9,7 @@ export const Subreddits = () => {
   const dispatch = useDispatch();
 
   const subreddits = useSelector((state) => state.subreddits.subreddits);
+  const selectSelectedSubreddits = useSelector((state) => state.redditPosts.selectedSubreddits);
 
   const handleSubreddits = () => {
     dispatch(getSubreddits());
@@ -26,8 +27,8 @@ export const Subreddits = () => {
           className={styles.subredditButton}
             key={subreddit.data.id}
             onClick={() => {
-              dispatch(getRedditPosts(subreddit.data.url));
               dispatch(setSelectedSubreddits(subreddit.data.url));
+              dispatch(getRedditPosts(selectSelectedSubreddits));
             }}
           >
             <img className={styles.subredditIcon} src={subreddit.data.icon_img} alt={`${subreddit.data.display_name}`} />
