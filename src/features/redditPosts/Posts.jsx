@@ -58,7 +58,7 @@ export const Posts = () => {
                   </div>
                   <h3>{post.data.title}</h3>
                 </div>
-                <img className={styles.postImage} src={post.data.url} />
+                <img className={styles.postImage} src={post.data.url || post.data.thumbnail} />
                 <div className={styles.bottomCard}>
                   <span>
                     u/{post.data.author} --{" "}
@@ -92,7 +92,8 @@ export const Posts = () => {
                 </div>
                 <h3>{post.data.title}</h3>
               </div>
-              <img className={styles.postImage} src={post.data.url} />
+              <img className={styles.postImage} src={post.data.url || post.data.thumbnail} />
+              <p className={styles.postText}>{post.data.selftext}</p>
               <div className={styles.bottomCard}>
                 <span>
                   u/{post.data.author} --{" "}
