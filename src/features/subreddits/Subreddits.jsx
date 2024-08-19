@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getSubreddits } from "./subredditsSlice";
 import { getRedditPosts } from "../redditPosts/redditPostsSlice";
 import { setSelectedSubreddits } from "../redditPosts/redditPostsSlice";
+import { setSearchTerm } from "../redditPosts/redditPostsSlice";
 import styles from "./Subreddits.module.css";
 
 export const Subreddits = () => {
@@ -26,6 +27,7 @@ export const Subreddits = () => {
           className={styles.subredditButton}
             key={subreddit.data.id}
             onClick={() => {
+              dispatch(setSearchTerm(""));
               dispatch(getRedditPosts(subreddit.data.url));
               dispatch(setSelectedSubreddits(subreddit.data.url));
             }}

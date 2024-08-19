@@ -15,6 +15,10 @@
   box-shadow: 0px 5px 15px #DEDEDE;
 }
 
+input {
+  margin-right: .5rem;
+}
+
 .header img {
   width: 3rem;
   height: 3rem;
@@ -26,5 +30,6 @@
 .componentMain {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 
 }

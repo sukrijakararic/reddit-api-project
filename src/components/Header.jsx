@@ -1,24 +1,14 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import { setSearchTerm } from "../features/redditPosts/redditPostsSlice";
 import { useSelector, useDispatch } from "react-redux";
 
 
 export const Header = () => {
-  const [searchTermLocal, setSearchTermLocal] = useState("");
   const searchTerm = useSelector((state) => state.redditPosts.searchTerm);
   const dispatch = useDispatch();
 
   const onSearchTermChange = (event) => {
-    setSearchTermLocal(event.target.value);
-  }
-  useEffect(() => {
-    setSearchTermLocal(searchTerm);
-  }, [searchTerm]);
-
-  const onSearchTermSubmit = (e) => {
-    e.preventDefault();
-    dispatch(setSearchTerm(searchTermLocal));
-  };
+    dispatch(setSearchTerm(event.target.value)); }
   
 
   return (
@@ -31,13 +21,11 @@ export const Header = () => {
           </h1>
         </div>
 
-        <form className="search" onSubmit={onSearchTermSubmit}>
           {" "}
-          <input value={searchTermLocal} onChange={onSearchTermChange}  type="text" name="Search" id="Search" />
-          <button type="submit" onClick={onSearchTermSubmit}>Search</button>
-        </form>
+          <input placeholder="Search" value={searchTerm} onChange={onSearchTermChange}  type="text" name="Search" id="Search" />
+
 
       </div>
     </header>
   )
-};
+  }
