@@ -41,6 +41,7 @@ h3 {
 .ups {
   font-family: "Roboto";
   font-size: 1.3rem;
+  margin: 1rem 0 1rem 0
 }
 
 .bottomCard {
@@ -70,6 +71,9 @@ h3 {
 }
 
 @media only screen and (max-width: 470px) {
+  .ups {
+    margin: .5rem 0 .5rem 0
+  }
   .postImage {
     width:12rem;
   }
