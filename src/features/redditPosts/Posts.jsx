@@ -59,6 +59,7 @@ export const Posts = () => {
                   <h3>{post.data.title}</h3>
                 </div>
                 <img className={styles.postImage} src={post.data.url || post.data.thumbnail} />
+                <p className={styles.postText}>{post.data.selftext}</p>
                 <div className={styles.bottomCard}>
                   <span>
                     u/{post.data.author} --{" "}
