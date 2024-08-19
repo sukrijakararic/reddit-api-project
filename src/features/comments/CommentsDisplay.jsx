@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import styles from "./CommentsDisplay.module.css";
 
 export const CommentsDisplay = () => {
   const comments = useSelector((state) => state.redditPosts.comments);

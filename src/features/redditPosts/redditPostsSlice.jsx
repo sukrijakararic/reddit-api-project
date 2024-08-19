@@ -23,6 +23,9 @@ export const redditPostsSlice = createSlice({
     setSearchTerm: (state, action) => {
       state.searchTerm = action.payload;
     },
+    setComments: (state, action) => {
+      state.comments = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -56,7 +59,7 @@ export const redditPostsSlice = createSlice({
   },
 });
 
-export const { setSelectedSubreddits, setSearchTerm } = redditPostsSlice.actions;
+export const { setSelectedSubreddits, setSearchTerm, setComments } = redditPostsSlice.actions;
 export default redditPostsSlice.reducer;
 
 const API_ROOT = "https://www.reddit.com";

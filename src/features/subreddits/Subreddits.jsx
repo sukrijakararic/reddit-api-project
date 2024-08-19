@@ -4,6 +4,7 @@ import { getSubreddits } from "./subredditsSlice";
 import { getRedditPosts } from "../redditPosts/redditPostsSlice";
 import { setSelectedSubreddits } from "../redditPosts/redditPostsSlice";
 import { setSearchTerm } from "../redditPosts/redditPostsSlice";
+import { setComments } from "../redditPosts/redditPostsSlice";
 import styles from "./Subreddits.module.css";
 
 export const Subreddits = () => {
@@ -28,6 +29,7 @@ export const Subreddits = () => {
             key={subreddit.data.id}
             onClick={() => {
               dispatch(setSearchTerm(""));
+              dispatch(setComments([]));
               dispatch(getRedditPosts(subreddit.data.url));
               dispatch(setSelectedSubreddits(subreddit.data.url));
             }}
