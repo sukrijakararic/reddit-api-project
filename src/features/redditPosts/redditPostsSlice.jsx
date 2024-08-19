@@ -4,7 +4,7 @@ const initialState = {
   posts: [],
   isLoading: false,
   error: false,
-  searchTerm: "",
+  searchTerm: '',
   selectedSubreddits: "/r/earthPorn/",
   comments: [],
   commentsIsLoading: false,
@@ -56,7 +56,7 @@ export const redditPostsSlice = createSlice({
   },
 });
 
-export const { setSelectedSubreddits } = redditPostsSlice.actions;
+export const { setSelectedSubreddits, setSearchTerm } = redditPostsSlice.actions;
 export default redditPostsSlice.reducer;
 
 const API_ROOT = "https://www.reddit.com";
