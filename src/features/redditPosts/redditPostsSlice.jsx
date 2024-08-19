@@ -19,7 +19,10 @@ export const redditPostsSlice = createSlice({
   reducers: {
     setSelectedSubreddits: (state, action) => {
       state.selectedSubreddits = action.payload;
-    }
+    },
+    setSearchTerm: (state, action) => {
+      state.searchTerm = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder

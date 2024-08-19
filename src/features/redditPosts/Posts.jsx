@@ -13,6 +13,7 @@ export const Posts = () => {
 
   const posts = useSelector((state) => state.redditPosts.posts);
   const subreddit = useSelector((state) => state.redditPosts.selectedSubreddits);
+  const searchTerm = useSelector((state) => state.redditPosts.searchTerm);
   
   const handleFetchPosts = () => {
     dispatch(getRedditPosts(subreddit));

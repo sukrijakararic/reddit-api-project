@@ -1,7 +1,15 @@
 import React from "react";
+import setSearchTerm from "../features/redditPosts/redditPostsSlice";
+import { useSelector, useDispatch } from "react-redux";
 
 
 export const Header = () => {
+
+  const searchTerm = useSelector((state) => state.redditPosts.searchTerm);
+const dispatch = useDispatch();
+  const handleChange = (event) => {
+    dispatch(setSearchTerm(event.target.value));
+  }
 
 
   return (
@@ -16,7 +24,7 @@ export const Header = () => {
 
         <form className="search">
           {" "}
-          <input type="text" name="Search" id="Search" />
+          <input value={searchTerm} onChange={handleChange} type="text" name="Search" id="Search" />
           <button type="submit">Search</button>
         </form>
 
