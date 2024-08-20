@@ -6,6 +6,7 @@ import ms from "ms";
 import { ArrowUp } from "../../components/svg-arrows/ArrowUp";
 import { ArrowDown } from "../../components/svg-arrows/ArrowDown";
 import { CommentsDisplay } from "../comments/CommentsDisplay";
+import { setComments } from "./redditPostsSlice";
 
 export const Posts = () => {
   const dispatch = useDispatch();
@@ -37,6 +38,7 @@ export const Posts = () => {
   };
 
   const handleShowComments = (post) => {
+    dispatch(setComments([]));
     setSelectedPost(post);
     dispatch(getComments(post.data.permalink));
   };
@@ -80,7 +82,7 @@ export const Posts = () => {
                       <span>{post.data.num_comments} comments</span>
                     </p>
                     {selectedPost && selectedPost.data.id === post.data.id && (
-                      <CommentsDisplay post={selectedPost} />
+                      <CommentsDisplay  />
                     )}
                   </div>
                 </div>
@@ -118,7 +120,7 @@ export const Posts = () => {
                     <span>{post.data.num_comments} comments</span>
                   </p>
                   {selectedPost && selectedPost.data.id === post.data.id && (
-                    <CommentsDisplay post={selectedPost} />
+                    <CommentsDisplay  />
                   )}
                 </div>
               </div>
