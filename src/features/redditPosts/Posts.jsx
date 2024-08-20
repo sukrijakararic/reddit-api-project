@@ -25,21 +25,23 @@ export const Posts = () => {
     handleFetchPosts();
   }, []);
 
-  const [green, setGreen] = useState("white");
-  const [red, setRed] = useState("white");
-  const [selectedPost, setSelectedPost] = useState(null);
+  const [green, setGreen] = useState(false);
+  const [red, setRed] = useState(false);
+  const [selectedPostId, setSelectedPostId] = useState(null);
 
-  const handleGreen = () => {
-    setGreen(green === "green" ? "white" : "green");
+  const handleGreen = (id) => {
+    setGreen(id);
+    setRed(false);
   };
 
-  const handleRed = () => {
-    setRed(red === "red" ? "white" : "red");
+  const handleRed = (id) => {
+    setRed(id);
+    setGreen(false);
   };
 
   const handleShowComments = (post) => {
     dispatch(setComments([]));
-    setSelectedPost(post);
+    setSelectedPostId(post.data.id);
     dispatch(getComments(post.data.permalink));
   };
 
@@ -54,13 +56,19 @@ export const Posts = () => {
               <article key={post.data.id} className={styles.postContainer}>
                 <div className={styles.topCard}>
                   <div className={styles.upVotes}>
-                    <ArrowUp fill={green} onClick={handleGreen} />
+                    <ArrowUp
+                      fill={green === post.data.id ? "green" : "white"}
+                      onClick={() => handleGreen(post.data.id)}
+                    />
                     <p className={styles.ups}>
                       {post.data.ups >= 1000
                         ? `${(post.data.ups / 1000).toFixed(1)}k`
                         : post.data.ups}
                     </p>
-                    <ArrowDown fill={red} onClick={handleRed} />
+                    <ArrowDown
+                      fill={red === post.data.id ? "red" : "white"}
+                      onClick={() => handleRed(post.data.id)}
+                    />
                   </div>
                   <h3>{post.data.title}</h3>
                 </div>
@@ -81,7 +89,7 @@ export const Posts = () => {
                     >
                       <span>{post.data.num_comments} comments</span>
                     </p>
-                    {selectedPost && selectedPost.data.id === post.data.id && (
+                    {selectedPostId === post.data.id && (
                       <CommentsDisplay  />
                     )}
                   </div>
@@ -92,13 +100,19 @@ export const Posts = () => {
             <article key={post.data.id} className={styles.postContainer}>
               <div className={styles.topCard}>
                 <div className={styles.upVotes}>
-                  <ArrowUp fill={green} onClick={handleGreen} />
+                  <ArrowUp
+                    fill={green === post.data.id ? "green" : "white"}
+                    onClick={() => handleGreen(post.data.id)}
+                  />
                   <p className={styles.ups}>
                     {post.data.ups >= 1000
                       ? `${(post.data.ups / 1000).toFixed(1)}k`
                       : post.data.ups}
                   </p>
-                  <ArrowDown fill={red} onClick={handleRed} />
+                  <ArrowDown
+                    fill={red === post.data.id ? "red" : "white"}
+                    onClick={() => handleRed(post.data.id)}
+                  />
                 </div>
                 <h3>{post.data.title}</h3>
               </div>
@@ -119,7 +133,7 @@ export const Posts = () => {
                   >
                     <span>{post.data.num_comments} comments</span>
                   </p>
-                  {selectedPost && selectedPost.data.id === post.data.id && (
+                  {selectedPostId === post.data.id && (
                     <CommentsDisplay  />
                   )}
                 </div>
@@ -129,4 +143,5 @@ export const Posts = () => {
     </main>
   );
 };
+
 
