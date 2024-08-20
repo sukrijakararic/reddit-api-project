@@ -26,6 +26,7 @@ export const Posts = () => {
 
   const [green, setGreen] = useState("white");
   const [red, setRed] = useState("white");
+  const [selectedPost, setSelectedPost] = useState(null);
 
   const handleGreen = () => {
     setGreen(green === "green" ? "white" : "green");
@@ -34,7 +35,12 @@ export const Posts = () => {
   const handleRed = () => {
     setRed(red === "red" ? "white" : "red");
   };
-  // if (!posts) return <h1>Loading...</h1>; going to expand on this to have a loading feature
+
+  const handleShowComments = (post) => {
+    setSelectedPost(post);
+    dispatch(getComments(post.data.permalink));
+  };
+
   return (
     <main>
       {searchTerm
@@ -69,11 +75,13 @@ export const Posts = () => {
                   <div>
                     <p
                       className={styles.comments}
-                      onClick={() => dispatch(getComments(post.data.permalink))}
+                      onClick={() => handleShowComments(post)}
                     >
                       <span>{post.data.num_comments} comments</span>
                     </p>
-                    <CommentsDisplay />
+                    {selectedPost && selectedPost.data.id === post.data.id && (
+                      <CommentsDisplay post={selectedPost} />
+                    )}
                   </div>
                 </div>
               </article>
@@ -105,11 +113,13 @@ export const Posts = () => {
                 <div>
                   <p
                     className={styles.comments}
-                    onClick={() => dispatch(getComments(post.data.permalink))}
+                    onClick={() => handleShowComments(post)}
                   >
                     <span>{post.data.num_comments} comments</span>
                   </p>
-                  <CommentsDisplay />
+                  {selectedPost && selectedPost.data.id === post.data.id && (
+                    <CommentsDisplay post={selectedPost} />
+                  )}
                 </div>
               </div>
             </article>
@@ -117,3 +127,4 @@ export const Posts = () => {
     </main>
   );
 };
+
