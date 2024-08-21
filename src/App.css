@@ -7,6 +7,10 @@
 
 }
 
+header {
+  margin-top: .8rem;
+}
+
 .header {
   display: flex;
   align-items: center;
