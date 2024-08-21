@@ -1,0 +1,16 @@
+.commentContainer {
+    border: 1px solid #DEDEDE;
+    border-radius: 3rem;
+    margin: 1rem;
+    padding: 1rem;
+    max-width: 90rem;
+}
+
+.commentAuthor {
+    font-weight: 500;
+    font-family: 'roboto';
+    margin: 0;
+    margin-bottom: 1rem;
+    border-bottom: #DEDEDE solid 1px;
+    font-size: .8rem;
+}
