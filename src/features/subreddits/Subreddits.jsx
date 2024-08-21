@@ -16,6 +16,13 @@ export const Subreddits = () => {
     dispatch(getSubreddits());
   };
 
+  const handleScroll = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
   useEffect(() => {
     handleSubreddits();
   }, []);
@@ -32,6 +39,7 @@ export const Subreddits = () => {
               dispatch(setComments([]));
               dispatch(getRedditPosts(subreddit.data.url));
               dispatch(setSelectedSubreddits(subreddit.data.url));
+              handleScroll();
             }}
           >
             <img className={styles.subredditIcon} src={subreddit.data.icon_img} alt={`${subreddit.data.display_name}`} />
