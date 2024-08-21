@@ -73,6 +73,7 @@ h3 {
   .postImage {
     width:20rem;
   }
+  
   .ups {
     font-size: 1rem;
   }
@@ -85,10 +86,11 @@ h3 {
     margin: 1rem 0 1rem .6rem;
     
   }
-  
+
   .ups {
     margin: .5rem 0 .5rem 0
   }
+
   .postImage {
     width:12rem;
   }

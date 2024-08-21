@@ -13,6 +13,7 @@ export const CommentsDisplay = () => {
           <img src={comment.data.author} alt="" />
           <p className={styles.commentAuthor}>{comment.data.author}</p>     
           <p key={comment.data.id}>- {comment.data.body}</p>
+          <p className={styles.commentLikes}>{comment.data.ups} likes</p>
         </div>
       ))}
     </div>
