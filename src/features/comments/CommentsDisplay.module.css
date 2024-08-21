@@ -1,6 +1,6 @@
 .commentContainer {
     border: 1px solid #DEDEDE;
-    border-radius: 3rem;
+    border-radius: 1rem;
     margin: 1rem;
     padding: 1rem;
     max-width: 90rem;
@@ -13,4 +13,34 @@
     margin-bottom: 1rem;
     border-bottom: #DEDEDE solid 1px;
     font-size: .8rem;
+}
+
+@media only screen and (max-width: 930px) { 
+    .commentContainer {
+        word-wrap: break-word;
+        max-width: 40rem;
+    }
+}
+
+@media only screen and (max-width: 795px) { 
+    .commentContainer {
+        word-wrap: break-word;
+        max-width: 25rem;
+    }
+}
+
+@media only screen and (max-width: 565px) { 
+    .commentContainer {
+        word-wrap: break-word;
+        max-width: 20rem;
+    }
+}
+
+@media only screen and (max-width: 470px) { 
+    .commentContainer {
+        margin: 0 0 1rem 0;
+        max-width: 17rem;
+        word-wrap: break-word;
+
+    }
 }

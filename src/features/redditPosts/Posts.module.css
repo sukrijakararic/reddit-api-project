@@ -79,6 +79,13 @@ h3 {
 }
 
 @media only screen and (max-width: 470px) {
+  .postContainer {
+    max-width: 20rem;
+    word-wrap: break-word;
+    margin: 1rem 0 1rem .6rem;
+    
+  }
+  
   .ups {
     margin: .5rem 0 .5rem 0
   }
