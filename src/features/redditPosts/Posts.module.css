@@ -59,11 +59,14 @@ h3 {
 }
 
 .comments {
-  border: 1px solid black;
+  
+  font-weight: 500;
+  font-family: "Roboto";
 }
 
 .comments:hover {
   cursor: pointer;
+  text-decoration: underline;
 }
 
 @media only screen and (max-width: 600px) {

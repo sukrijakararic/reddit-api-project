@@ -87,11 +87,9 @@ export const Posts = () => {
                       className={styles.comments}
                       onClick={() => handleShowComments(post)}
                     >
-                      <span>{post.data.num_comments} comments</span>
+                      {post.data.num_comments} comments
                     </p>
-                    {selectedPostId === post.data.id && (
-                      <CommentsDisplay  />
-                    )}
+                    {selectedPostId === post.data.id && <CommentsDisplay />}
                   </div>
                 </div>
               </article>
@@ -131,11 +129,9 @@ export const Posts = () => {
                     className={styles.comments}
                     onClick={() => handleShowComments(post)}
                   >
-                    <span>{post.data.num_comments} comments</span>
+                    {post.data.num_comments} comments
                   </p>
-                  {selectedPostId === post.data.id && (
-                    <CommentsDisplay  />
-                  )}
+                  {selectedPostId === post.data.id && <CommentsDisplay />}
                 </div>
               </div>
             </article>
@@ -143,5 +139,3 @@ export const Posts = () => {
     </main>
   );
 };
-
-
